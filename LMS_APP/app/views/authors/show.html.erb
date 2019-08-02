@@ -1,0 +1,14 @@
+<% provide(:title, @author.name) %>
+<div class="row">
+  	<aside class="col-md-4">
+	    <section class="user_info">
+	      	<h1>
+	        	Name: <%= @author.name %>
+	      	</h1>
+		    <span>
+		      	(<%= @author.nickname %>)
+		    </span>
+		    <span>&emsp;&emsp;&emsp;<%= @author.content unless @author.content.nil? %></span>
+	    </section>
+  	</aside>
+</div>
