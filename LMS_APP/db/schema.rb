@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 2019_08_02_091344) do
     t.string "content"
     t.integer "level"
     t.string "password_digest"
+    t.string "remember_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
