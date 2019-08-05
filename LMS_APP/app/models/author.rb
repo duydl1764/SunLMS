@@ -1,4 +1,6 @@
 class Author < ApplicationRecord
+	has_many :books
+
 	before_save { self.name = name.downcase
 					self.nickname = nickname.downcase }
 

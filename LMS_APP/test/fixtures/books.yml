@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  status: MyString
+  content: MyString
+  pages: 1
+  number_of: 1
+  author: one
+  category: one
+  publisher: one
+
+two:
+  name: MyString
+  status: MyString
+  content: MyString
+  pages: 1
+  number_of: 1
+  author: two
+  category: two
+  publisher: two

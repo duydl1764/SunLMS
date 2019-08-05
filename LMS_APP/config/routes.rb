@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get '/create_book', to: 'books#new'
+  post '/create_book', to: 'books#create'
+
   get '/create_author', to: 'authors#new'
   post '/create_author', to: 'authors#create'
   
@@ -22,6 +25,6 @@ Rails.application.routes.draw do
   resources :categories
   resources :publishers
   resources :authors
+  resources :books
 
-  
 end
