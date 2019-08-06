@@ -8,4 +8,13 @@
       <span>&emsp;&emsp;&emsp;<%= @category.content unless @category.content.nil? %></span>
     </section>
   </aside>
+  <div class="col-md-8">
+    	<% if @category.books.any? %>
+      		<h3>Books (<%= @category.books.count %>)</h3>
+      		<ol class="books">
+        		<%= render @books %>
+      		</ol>
+      		<%= will_paginate @books %>
+    	<% end %>
+  	</div>
 </div>

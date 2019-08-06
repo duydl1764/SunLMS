@@ -1,0 +1,12 @@
+<% provide(:title, 'All publishers') %>
+<h1>All publishers</h1>
+
+<%= link_to "Create publishers", create_publisher_path %>
+
+<%= will_paginate %>
+
+<ul class="publishers">
+  <%= render @publishers %>
+</ul>
+
+<%= will_paginate %>

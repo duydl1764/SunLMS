@@ -11,4 +11,13 @@
 		    <span>&emsp;&emsp;&emsp;<%= @author.content unless @author.content.nil? %></span>
 	    </section>
   	</aside>
+  	<div class="col-md-8">
+    	<% if @author.books.any? %>
+      		<h3>Books (<%= @author.books.count %>)</h3>
+      		<ol class="books">
+        		<%= render @books %>
+      		</ol>
+      		<%= will_paginate @books %>
+    	<% end %>
+  	</div>
 </div>
