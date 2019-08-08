@@ -1,31 +1,15 @@
 <% provide(:title, @book.name) %>
 <div class="row">
-  	<aside class="col-md-4">
-	    <section class="user_info">
-	      	<h1>
-	        	Name: <%= @book.name %>
-	      	</h1>
-	      	<h1>
-	        	Status: <%= @book.status %>
-	      	</h1>
-		  	<h1>
-	        	Content: <%= @book.content unless @book.content.nil? %>
-	      	</h1>
-		    <h1>
-	        	Pages: <%= @book.pages %>
-	      	</h1>
-	      	<h1>
-	        	Number_of: <%= @book.number_of %>
-	      	</h1>
-	      	<h1>
-	        	Author: <%= @book.author.name %>
-	      	</h1>
-	      	<h1>
-	        	Publisher: <%= @book.publisher.name %>
-	      	</h1>
-	      	<h1>
-	        	Category: <%= @book.category.name %>
-	      	</h1>
-	    </section>
-  	</aside>
+  <aside class="col-md-4">
+    <section class="user_info">
+      <h1>Name: <%= @book.name %></h1>
+      <h1>Status: <%= @book.status %></h1>
+      <h1>Content: <%= @book.content if @book.content.present? %></h1>
+      <h1>Pages: <%= @book.pages %></h1>
+      <h1>Number_of: <%= @book.number_of %></h1>
+      <h1>Author: <%= @book.author.name %></h1>
+      <h1>Publisher: <%= @book.publisher.name %></h1>
+      <h1>Category: <%= @book.category.name %></h1>
+    </section>
+  </aside>
 </div>

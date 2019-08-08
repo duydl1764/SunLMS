@@ -2,19 +2,15 @@
 <div class="row">
   <aside class="col-md-4">
     <section class="user_info">
-      <h1>
-        Name: <%= @category.name %>
-      </h1>
-      <span>&emsp;&emsp;&emsp;<%= @category.content unless @category.content.nil? %></span>
+      <h1>Name: <%= @category.name %></h1>
+      <span>&emsp;&emsp;&emsp;<%= @category.content if @category.content.present? %></span>
     </section>
   </aside>
   <div class="col-md-8">
-    	<% if @category.books.any? %>
-      		<h3>Books (<%= @category.books.count %>)</h3>
-      		<ol class="books">
-        		<%= render @books %>
-      		</ol>
-      		<%= will_paginate @books %>
-    	<% end %>
-  	</div>
+    <% if @category.books.any? %>
+      <h3>Books (<%= @category.books.count %>)</h3>
+      <ol class="books"><%= render @books %></ol>
+      <%= will_paginate @books %>
+    <% end %>
+  </div>
 </div>

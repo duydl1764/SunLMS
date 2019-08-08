@@ -1,11 +1,3 @@
-GIT
-  remote: https://github.com/ctran/annotate_models.git
-  revision: 111640d077836ced23cfffb882c93e40968ab9d9
-  specs:
-    annotate (2.7.5)
-      activerecord (>= 3.2, < 7.0)
-      rake (>= 10.4, < 13.0)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -219,7 +211,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  annotate!
   bcrypt (~> 3.1.7)
   bootsnap (>= 1.1.0)
   bootstrap-sass (> 3.3.7)

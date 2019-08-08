@@ -1,14 +1,14 @@
 class AuthorsController < ApplicationController
   before_action :logged_in_user, only: [:create, :edit, :update, :destroy, :index]
   before_action :admin_user,     only: [:create, :edit, :update, :destroy]
-  before_action :before_destroy,  only: :destroy
+  before_action :set_author,     only: [:show, :edit, :update]
+  before_action :before_destroy, only: :destroy
 
   def new
-  	@author = Author.new
+    @author = Author.new
   end
 
   def show
-  	@author = Author.find(params[:id])
     @books = @author.books.paginate(page: params[:page])
   end
 
@@ -17,26 +17,24 @@ class AuthorsController < ApplicationController
   end
 
   def edit
-    @author = Author.find(params[:id])
   end
 
   def create
-  	@author = Author.new(author_params)
-  	if(@author.save)
-  		flash[:success] = "Create author complete!"
-  		redirect_to authors_path
-  	else
-  		render 'new'
-  	end
+    @author = Author.new(author_params)
+    if @author.save
+      flash[:success] = "Create author complete!"
+      redirect_to authors_path
+    else
+      render :new
+    end
   end
 
   def update
-    @author = Author.find(params[:id])
-    if(@author.update_attributes(author_params))
+    if @author.update_attributes(author_params)
       flash[:success] = "Update author complete!"
       redirect_to authors_path
     else
-      render 'edit'
+      render :edit
     end
   end
 
@@ -47,16 +45,18 @@ class AuthorsController < ApplicationController
   end
 
   private
+  def author_params
+    params.require(:author).permit(:name, :nickname, :content)
+  end
 
-  	def author_params
-  		params.require(:author).permit(:name, :nickname, :content)
-  	end
-
-    def before_destroy
-      @author = Author.find(params[:id])
-      @author.books.each do |book|
-        book.update_before_destroy_author
-      end
+  def before_destroy
+    @author = Author.find(params[:id])
+    @author.books.each do |book|
+      book.update_before_destroy_author
     end
+  end
 
+  def set_author
+    @author = Author.find(params[:id])
+  end
 end

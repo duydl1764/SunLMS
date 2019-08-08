@@ -2,7 +2,6 @@
 	<%= link_to book.name, book %>
 	<% if current_user.admin? %>
 		| <%= link_to "Edit", edit_book_path(book) %>
-    	| <%= link_to "Delete", book,
-    		method: :delete, data: { confirm: "You sure?" } %>
-  	<% end %>
+    | <%= link_to "Delete", book, method: :delete %>
+  <% end %>
 </li>

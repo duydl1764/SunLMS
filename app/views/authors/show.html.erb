@@ -1,23 +1,17 @@
 <% provide(:title, @author.name) %>
 <div class="row">
-  	<aside class="col-md-4">
-	    <section class="user_info">
-	      	<h1>
-	        	Name: <%= @author.name %>
-	      	</h1>
-		    <span>
-		      	(<%= @author.nickname %>)
-		    </span>
-		    <span>&emsp;&emsp;&emsp;<%= @author.content unless @author.content.nil? %></span>
-	    </section>
-  	</aside>
-  	<div class="col-md-8">
-    	<% if @author.books.any? %>
-      		<h3>Books (<%= @author.books.count %>)</h3>
-      		<ol class="books">
-        		<%= render @books %>
-      		</ol>
-      		<%= will_paginate @books %>
-    	<% end %>
-  	</div>
+  <aside class="col-md-4">
+    <section class="author_info">
+      <h1>Name: <%= @author.name %></h1>
+      <span>(<%= @author.nickname %>)</span>
+      <span>&emsp;&emsp;&emsp;<%= @author.content if @author.content.present? %></span>
+    </section>
+  </aside>
+  <div class="col-md-8">
+    <% if @author.books.any? %>
+      <h3>Books (<%= @author.books.count %>)</h3>
+      <ol class="books"><%= render @books %></ol>
+      <%= will_paginate @books %>
+    <% end %>
+  </div>
 </div>

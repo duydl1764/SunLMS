@@ -1,35 +1,35 @@
 <%= form_for(@book) do |f| %>
-	<%= render 'shared/error_messages', object: f.object %>
+  <%= render "shared/error_messages", object: f.object %>
 
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
 
-    <%= f.label :status %>
-    <%= f.text_field :status %>
+  <%= f.label :status %>
+  <%= f.text_field :status %>
 
-    <%= f.label :content %>
-    <%= f.text_area :content %>
+  <%= f.label :content %>
+  <%= f.text_area :content %>
 
-    <%= f.label :pages %>
-    <%= f.number_field :pages, min: 0, step: :any, class: 'form-control' %>
+  <%= f.label :pages %>
+  <%= f.number_field :pages, min: 0, step: :any, class: "form-control" %>
 
-    <%= f.label :number_of %>
-    <%= f.number_field :number_of, min: 0, step: :any, class: 'form-control' %>
+  <%= f.label :number_of %>
+  <%= f.number_field :number_of, min: 0, step: :any, class: "form-control" %>
 
-    <%= f.label :author %>
-    <%= select("book", "author_id", Author.all.collect{
-            |a| [a.name, a.id]
-        }, { prompt: "Select Author "}) %>
+  <%= f.label :author %>
+  <%= select("book", "author_id", Author.all.collect{
+        |a| [a.name, a.id]
+    }, { prompt: "Select Author "}) %>
 
-    <%= f.label :category %>
-    <%= select("book", "category_id", Category.all.collect{
-            |a| [a.name, a.id]
-        }, { prompt: "Select Category "}) %>
+  <%= f.label :category %>
+  <%= select("book", "category_id", Category.all.collect{
+        |a| [a.name, a.id]
+    }, { prompt: "Select Category "}) %>
 
-    <%= f.label :publisher %>
-    <%= select("book", "publisher_id", Publisher.all.collect{
-            |a| [a.name, a.id]
-        }, { prompt: "Select Publisher "}) %>
+  <%= f.label :publisher %>
+  <%= select("book", "publisher_id", Publisher.all.collect{
+        |a| [a.name, a.id]
+    }, { prompt: "Select Publisher "}) %>
 
-    <%= f.submit yield(:button_name), class: "btn btn-primary" %>
+  <%= f.submit yield(:button_name), class: "btn btn-primary" %>
 <% end %>
