@@ -3,14 +3,16 @@
     <% @feed_items.each do |comment| %>
       <li id="comment-<%= comment.id %>">
         <%= link_to gravatar_for(comment.user, size: 50), comment.user %>
-        <span class="user"><%= link_to comment.user.name, comment.user %>
-          đã bình luận về <%= link_to comment.book.name, comment.book %>
+        <span class="user"><%= link_to comment.user.name, comment.user %> <%= t("shared.feed.text_commented") %> <%= link_to comment.book.name, comment.book %>
         </span>
-        <span class="content"><%= comment.content %></span>
+        <span class="content">
+          <%= comment.content %>
+          <%= image_tag comment.picture.url if comment.picture? %>  
+        </span>
         <span class="timestamp">
-          <%= t(:text_comment) %> <%= time_ago_in_words(comment.created_at) %> ago.
+          <%= t(:text_comment) %> <%= time_ago_in_words(comment.created_at) %> <%= t(:text_ago) %>.
           <% if current_user?(comment.user) || current_user.admin? %>
-            <%= link_to t(:text_delete), comment, method: :delete %>
+            <%= link_to t(:text_delete), comment, method: :delete, class: "btn btn-outline-primary" %>
           <% end %>
         </span>
       </li>

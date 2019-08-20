@@ -1,6 +1,11 @@
 <li>
   <%= gravatar_for user, size: 50 %>
-  <%= link_to user.name, user, class: "btn btn-outline-primary left" %>
+  <%= link_to user.name, user, class: "left" %>
+  <% if user.moderator? %>
+    <span class="text-primary"><%= t("users._users.roles_moderator") %></span>
+  <% elsif user.admin? %>
+    <span class="text-primary"><%= t("users._users.roles_admin") %></span>
+  <% end %>
   <% if current_user.admin? && !user.admin? %>
     <%= link_to t(:text_delete), user, method: :delete, class: "btn btn-outline-primary right" %>
     <%= link_to t(:text_edit), edit_user_path(user), class: "btn btn-outline-primary right" %>

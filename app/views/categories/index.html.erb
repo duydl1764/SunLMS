@@ -2,7 +2,7 @@
 <h1><%= t("categories.index.name_page") %></h1>
 
 <% if current_user.admin? %>
-<%= link_to t("categories.index.text_button"), new_category_path%>
+<%= link_to t("categories.index.text_button"), new_category_path, class: "btn btn-outline-primay right" %>
 <% end %>
 
 <ul class="objects">

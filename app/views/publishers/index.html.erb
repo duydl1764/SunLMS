@@ -2,7 +2,7 @@
 <h1><%= t("publishers.index.name_page") %></h1>
 
 <% if current_user.admin? %>
-<%= link_to t("publishers.index.text_button"), new_publisher_path %>
+<%= link_to t("publishers.index.text_button"), new_publisher_path, class: "btn btn-outline-primary right" %>
 <% end %>
 
 <ul class="objects">

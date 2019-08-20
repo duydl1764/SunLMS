@@ -8,7 +8,7 @@
   </aside>
   <div class="col-md-8">
     <% if @category.books.any? %>
-      <h3><%= t("layouts.header.text_book") %> (<%= @category.books.count %>)</h3>
+      <h3><%= t(:text_count, count: @category.books.count) %></h3>
       <ol class="objects"><%= render @books %></ol>
       <%= will_paginate @books %>
     <% end %>

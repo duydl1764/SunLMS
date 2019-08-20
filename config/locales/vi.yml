@@ -1,4 +1,7 @@
 vi:
+  text_count: "Sách (%{count})"
+  text_count_comment: "Bình luận (%{count})" 
+  text_ago: "trước"
   text_delete: "Xóa"
   text_edit: "Chỉnh sửa"
   text_comment: "Bình luận"
@@ -17,11 +20,15 @@ vi:
       name_page: "Chỉnh sửa cá nhân"
       text_page: "Cập nhật thông tin cá nhân"
       text_button: "Cập nhật thay đổi!"
+      text_change: "Thay đổi!" 
     index:
       name_page: "Danh sách thành viên"
     new:
       name_page: "Đăng ký tài khoản"
       text_button: "Tạo tài khoản!"
+    _users:
+      roles_moderator: "Nhân viên điều hành"
+      roles_admin: "Quản lý"
 
   static_pages:
     home:
@@ -30,6 +37,14 @@ vi:
       text_page: "Chào mừng đến với Library Management App"
     about:
       name_page: "Thông tin về chúng tôi"
+
+  shared:
+    feed:
+      text_commented: "đã bình luận về"
+    comment_form:
+      text_holder: "Đăng bình luận mới ..."
+    user_info:
+      view_profile: "Xem trang cá nhân"
 
   sessions:
     new:

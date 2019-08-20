@@ -1,7 +1,7 @@
 <li>
-  <%= link_to category.name, category %>
+  <%= link_to category.name, category, class: "left" %>
   <% if current_user.admin? %>
-    | <%= link_to t(:text_edit), edit_category_path(category) %>
-    | <%= link_to t(:text_delete), category, method: :delete %>
+    <%= link_to t(:text_delete), category, method: :delete, class: "btn btn-outline-primay right" %>
+    <%= link_to t(:text_edit), edit_category_path(category), class: "btn btn-outline-primay right" %>
   <% end %>
 </li>

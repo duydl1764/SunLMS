@@ -1,7 +1,7 @@
 <li>
-  <%= link_to publisher.name, publisher %>
+  <%= link_to publisher.name, publisher, class: "left" %>
   <% if current_user.admin? %>
-    | <%= link_to t(:text_edit), edit_publisher_path(publisher) %>
-    | <%= link_to t(:text_delete), publisher, method: :delete %>
+    <%= link_to t(:text_delete), publisher, method: :delete, class: "btn btn-outline-primary right" %>
+    <%= link_to t(:text_edit), edit_publisher_path(publisher), class: "btn btn-outline-primary right" %>
   <% end %>
 </li>

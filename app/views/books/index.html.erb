@@ -3,7 +3,7 @@
 <h1><%= t("books.index.name_page") %></h1>
 
 <% if current_user.admin? %>
-<%= link_to t("books.index.text_button"), new_book_path %>
+<%= link_to t("books.index.text_button"), new_book_path, class: "btn btn-outline-primary right" %>
 <% end %>
 
 <ul class="objects">

@@ -1,0 +1,4 @@
+size_picture_comment: 10
+enabled_locales: ["en", "vn"]
+client:
+  host: "localhost:3000"

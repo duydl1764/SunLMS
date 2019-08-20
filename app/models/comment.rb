@@ -6,12 +6,13 @@ class Comment < ApplicationRecord
   validates :content, presence: true, length: { maximum: 500 }
   validates :user_id, presence: true
   validates :book_id, presence: true
-  validate :picture_size
+  validates :picture, file_size: { less_than_or_equal_to: Settings.size_picture_comment.megabytes }
+  # validate :picture_size
 
-  private
-  def picture_size
-    if picture.size > 10.megabytes
-      errors.add(:picture, t(:text_error))
-    end
-  end
+  # private
+  # def picture_size
+  #   if picture.size > Settings.size
+  #     errors.add(:picture, t(:text_error))
+  #   end
+  # end
 end

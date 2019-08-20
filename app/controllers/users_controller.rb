@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user, only: [:show, :index, :edit, :update, :destroy]
   before_action :set_user, only: [:show, :edit, :update]
   before_action :correct_user, only: [:edit, :update]
   before_action :admin_user, only: :destroy
-
+  skip_before_action :logged_in_user, only: [:new, :create]
+  
   def new
     @user = User.new
   end
@@ -48,11 +48,10 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:name, :email, :level, :password, :password_confirmation)
+    params.require(:user).permit(:name, :email, :content, :roles, :password, :password_confirmation)
   end
 
   def correct_user
-    @user = User.find(params[:id])
     redirect_to root_path unless current_user?(@user) || current_user.admin?
   end
 

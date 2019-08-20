@@ -1,6 +1,5 @@
 class PublishersController < ApplicationController
   before_action :set_publisher,   only: [:show, :edit, :update]
-  before_action :logged_in_user
   before_action :admin_user,      only: [:create, :edit, :update, :destroy]
   before_action :before_destroy,  only: :destroy
 

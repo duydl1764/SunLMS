@@ -10,9 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_12_023347) do
+ActiveRecord::Schema.define(version: 2019_08_22_084105) do
 
-  create_table "authors", force: :cascade do |t|
+  create_table "authors", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.string "nickname"
     t.string "content"
@@ -20,15 +20,15 @@ ActiveRecord::Schema.define(version: 2019_08_12_023347) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "books", force: :cascade do |t|
+  create_table "books", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.string "status"
     t.string "content"
     t.integer "pages", default: 0
     t.integer "number_of", default: 0
-    t.integer "author_id"
-    t.integer "category_id"
-    t.integer "publisher_id"
+    t.bigint "author_id"
+    t.bigint "category_id"
+    t.bigint "publisher_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["author_id"], name: "index_books_on_author_id"
@@ -36,17 +36,17 @@ ActiveRecord::Schema.define(version: 2019_08_12_023347) do
     t.index ["publisher_id"], name: "index_books_on_publisher_id"
   end
 
-  create_table "categories", force: :cascade do |t|
+  create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.string "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "comments", force: :cascade do |t|
+  create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "content"
-    t.integer "user_id"
-    t.integer "book_id"
+    t.bigint "user_id"
+    t.bigint "book_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "picture"
@@ -55,7 +55,7 @@ ActiveRecord::Schema.define(version: 2019_08_12_023347) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
-  create_table "publishers", force: :cascade do |t|
+  create_table "publishers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.string "address"
     t.string "content"
@@ -63,16 +63,20 @@ ActiveRecord::Schema.define(version: 2019_08_12_023347) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.string "email"
     t.string "content"
     t.string "password_digest"
     t.string "remember_digest"
-    t.boolean "admin", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "level", default: 0
+    t.integer "roles", default: 0
   end
 
+  add_foreign_key "books", "authors"
+  add_foreign_key "books", "categories"
+  add_foreign_key "books", "publishers"
+  add_foreign_key "comments", "books"
+  add_foreign_key "comments", "users"
 end

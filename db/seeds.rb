@@ -10,16 +10,18 @@ User.create!(name:  "User First",
              email: "manh@gmail.com",
              password:              "123123",
              password_confirmation: "123123",
-             admin: true)
+             role: 2)
 
 60.times do |n|
   name  = Faker::Name.name
   email = "example-#{n+1}@railstutorial.org"
   password = "password"
+  role = ((n+1)%5 == 0)? 1 : 0
   User.create!(name:  name,
                email: email,
                password:              password,
-               password_confirmation: password)
+               password_confirmation: password,
+               role: role )
 end
 
 Publisher.create!(name: "Sách chưa xuất bản", address: "Khong dia chi", content: "")

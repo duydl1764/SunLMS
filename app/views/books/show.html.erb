@@ -17,7 +17,7 @@
       <%= render "shared/comment_form" %>
     </section>
     <% if @book.comments.any? %>
-      <h3><%= t(:text_comment) %> (<%= @book.comments.count %>)</h3>
+      <h3><%= t(:text_count_comment, count: @book.comments.count) %></h3>
       <ol class="comments">
         <%= render @comments %>
       </ol>

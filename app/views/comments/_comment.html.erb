@@ -6,9 +6,9 @@
     <%= image_tag comment.picture.url if comment.picture? %>
   </span>
   <span class="timestamp">
-    <%= t(:text_comment) %> <%= time_ago_in_words(comment.created_at) %> ago.
+    <%= t(:text_comment) %> <%= time_ago_in_words(comment.created_at) %> <%= t(:text_ago) %>.
     <% if current_user?(comment.user) || current_user.admin? %>
-      <%= link_to t(:text_delete), comment, method: :delete %>
+      <%= link_to t(:text_delete), comment, method: :delete, class: "btn btn-outline-primary" %>
     <% end %>
   </span>
 </li>

@@ -30,6 +30,9 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  text_count: "Books (%{count})"
+  text_count_comment: "Comments (%{count})"
+  text_ago: "ago"
   text_delete: "Delete"
   text_edit: "Edit"
   text_comment: "Comment"
@@ -48,11 +51,17 @@ en:
       name_page: "Edit User"
       text_page: "Update your profile"
       text_button: "Save Change!"
+      text_change: "Change!"
     index:
       name_page: "All Users"
     new:
       name_page: "Sign Up"
       text_button: "Create Account!"
+    show:
+      text_comments: "Comment Feed"
+    _users:
+      roles_moderator: "MODERATOR"
+      roles_admin: "ADMIN"
 
   static_pages:
     home:
@@ -61,6 +70,14 @@ en:
       text_page: "Welcome to the Library Management App"
     about:
       name_page: "Abouts"
+
+  shared:
+    feed:
+      text_commented: "commented on"
+    comment_form:
+      text_holder: "Compose new comment ..."
+    user_info:
+      view_profile: "View Profile"
 
   sessions:
     new:

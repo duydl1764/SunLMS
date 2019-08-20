@@ -193,8 +193,16 @@ input {
     .left {
       float: left;
     }
+    span {
+      position: absolute;
+      left: 47%;
+      font-size: 120%;
+      padding-top: 13px;
+      padding-bottom: 13px;
+    }
     a {
       padding-top: 15px;
+      padding-bottom: 15px;
     }
   }
 }
@@ -242,4 +250,8 @@ span.picture {
   input {
     border: 0;
   }
+}
+
+div.pagination {
+  margin-left: 30%;
 }

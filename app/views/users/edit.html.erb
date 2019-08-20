@@ -15,11 +15,11 @@
       <%= f.label :content %>
       <%= f.text_field :content, class: "form-control" %>
 
-      <% if current_user.admin? %>
-        <%= f.label :level %>
-        <%= f.number_field :level, in: 0..5, step: :any, class: "form-control" %>
+      <% if current_user.admin? && !current_user?(@user) %>
+        <%= f.label :roles %>
+        <%= f.select :roles, User.roles.keys, { selected: @user.roles }, class: "form-control" %>
       <% else %>
-        <%= hidden_field_tag :level, @user.level %>
+        <%= hidden_field_tag :roles, @user.roles %>
       <% end %>
 
       <%= f.label :password %>
@@ -33,7 +33,7 @@
 
     <div class="gravatar_edit">
       <%= gravatar_for @user %>
-      <a href="http://gravatar.com/emails" target="_blank">Change</a>
+      <a href="http://gravatar.com/emails" target="_blank"><%= t("users.edit.text_change") %></a>
     </div>
   </div>
 </div>

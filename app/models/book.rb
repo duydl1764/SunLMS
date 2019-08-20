@@ -29,5 +29,4 @@ class Book < ApplicationRecord
   def update_before_destroy_publisher
     update_attribute(:publisher_id, NO_PUBLISHER_ID)
   end
-
 end
