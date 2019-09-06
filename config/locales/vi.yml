@@ -1,4 +1,7 @@
 vi:
+  text_export: "Xuất file Excel"
+  text_search_holder: "Tìm kiếm theo tên"
+  text_search: "Tìm kiếm ..."
   text_count: "Sách (%{count})"
   text_count_author: "Tác giả (%{count})"
   text_count_user: "Thành viên đang theo dõi (%{count})"

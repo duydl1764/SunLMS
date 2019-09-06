@@ -37,6 +37,10 @@ gem 'bootstrap-will_paginate'
 gem 'config'
 gem 'file_validators'
 gem 'date_validator', '~> 0.9.0'
+gem 'axlsx_rails'
+gem 'rubyzip'
+gem 'axlsx'
+gem 'axlsx_styler'
 
 # Use ActiveStorage variant
 gem 'mini_magick', '~> 4.8'

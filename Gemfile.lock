@@ -50,6 +50,17 @@ GEM
     arel (9.0.0)
     autoprefixer-rails (9.6.1)
       execjs
+    axlsx (3.0.0.pre)
+      htmlentities (~> 4.3, >= 4.3.4)
+      mimemagic (~> 0.3)
+      nokogiri (~> 1.8, >= 1.8.2)
+      rubyzip (~> 1.2, >= 1.2.1)
+    axlsx_rails (0.5.2)
+      actionpack (>= 3.1)
+      axlsx (>= 2.0.1)
+    axlsx_styler (0.2.0)
+      activesupport (>= 3.1)
+      axlsx (>= 2.0, < 4)
     bcrypt (3.1.13)
     bindex (0.8.1)
     bootsnap (1.4.4)
@@ -297,6 +308,7 @@ GEM
     formatador (0.2.5)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
+    htmlentities (4.3.4)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
     i18n (1.6.0)
@@ -451,6 +463,9 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  axlsx
+  axlsx_rails
+  axlsx_styler
   bcrypt (~> 3.1.7)
   bootsnap (>= 1.1.0)
   bootstrap-sass (> 3.3.7)
@@ -475,6 +490,7 @@ DEPENDENCIES
   puma (~> 3.11)
   rails (~> 5.2.3)
   rails-i18n
+  rubyzip
   sass-rails (~> 5.0)
   selenium-webdriver
   spring

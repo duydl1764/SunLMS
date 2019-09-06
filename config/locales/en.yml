@@ -30,6 +30,9 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  text_export: "Export Excel"
+  text_search_holder: "Search by name"
+  text_search: "Search ..."
   text_count: "Books (%{count})"
   text_count_author: "Authors (%{count})"
   text_count_user: "Users Follow (%{count})"
