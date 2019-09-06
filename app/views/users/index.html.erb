@@ -1,6 +1,11 @@
 <% provide(:title, t("users.index.name_page")) %>
 <h1><%= t("users.index.name_page") %></h1>
 
+<div class="row">
+  <%= render "search" %>
+  <%= render "export" %>
+</div>
+
 <ul class="objects">
   <%= render @users %>
 </ul>

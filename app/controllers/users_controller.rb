@@ -9,7 +9,6 @@ class UsersController < ApplicationController
   end
 
   def show
-    # @comments = @user.comments.paginate(page: params[:page])
     @feed_items = @user.feed.paginate(page: params[:page], per_page: 10)
     if current_user.following?(@user)
       @user_unfollow = current_user.active_relationship_user.find_by(followed_id: @user.id)
@@ -19,7 +18,15 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.paginate(page: params[:page], per_page: 10)
+    @user_search = User.search_user(params[:search])
+    @users = @user_search.paginate(page: params[:page], per_page: 10)
+    respond_to do |format|
+      format.html
+      format.xlsx{
+        filename = "User_#{Time.now}"
+        response.headers["Content-Disposition"] = "attachment; filename=#{filename}"
+      }
+    end
   end
 
   def edit

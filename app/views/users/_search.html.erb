@@ -1,0 +1,10 @@
+<%= form_tag(users_path, method: :get) do %>
+  <div class="form-row">
+    <div class="col-md-7" style="margin-left: 50px;" >
+      <%= text_field_tag :search, params[:search], class: "form-control", placeholder: t(:text_search_holder) %>
+    </div>
+    <div class="col-md-2">
+      <%= submit_tag t(:text_search), class: "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>

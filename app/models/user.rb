@@ -23,6 +23,7 @@ class User < ApplicationRecord
   validates :content, length: { maximum: 200 }
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
+  scope :search_user, -> (name) { where("name LIKE ?", "%#{name}%") }
 
   class << self
     def digest string
